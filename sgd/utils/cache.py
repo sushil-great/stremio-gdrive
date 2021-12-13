@@ -10,7 +10,7 @@ class Cache:
         try:
             self.load()
         except FileNotFoundError:
-            self.contents = dict()
+            self.contents = {}
             self.save() 
 
     def load(self):
