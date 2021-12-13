@@ -35,7 +35,7 @@ class Streams:
         return f"{size:.2f}{unit}"
 
     def get_name(self):
-        return self.parsed.get_str(f'GDrive %resolution %quality')
+        return self.parsed.get_str('GDrive %resolution %quality')
 
     def get_title(self):
         file_name = self.item.get('name')

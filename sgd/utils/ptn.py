@@ -25,7 +25,7 @@ class parse_title:
                 string = getattr(self, word[1:], '')
                 if string:
                     formatted += f'{string} '
-                elif not string and y == ';':
+                elif y == ';':
                     return ''
             else:
                 formatted += f'{word} '

@@ -102,9 +102,8 @@ class GoogleDrive:
                     'driveId', 'MyDrive') + item.get('md5Checksum')
                 if unique_key in unique_keys:
                     return False
-                else:
-                    unique_keys.add(unique_key)
-                    return True
+                unique_keys.add(unique_key)
+                return True
 
             self.results = sorted(
                 filter(check_dupe, response),

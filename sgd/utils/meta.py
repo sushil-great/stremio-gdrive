@@ -23,7 +23,7 @@ class Meta:
 
         meta = self.get(
             f'v2.sg.media-imdb.com/suggests/t/{self.id}.json', 'd')
-        
+
         if meta:
             self.set_meta(self.id, meta[0], year='y', name='l')
         else:  # fallback to cinemeta just for keks
@@ -34,11 +34,8 @@ class Meta:
 
         if meta:
             self.slug = del_punc(self.name)
-            if self.name != self.slug:
-                self.names = [self.name, self.slug]
-            else:
-                self.names = [self.slug]
-            self.alnum_names = set(alnum(name) for name in self.names)
+            self.names = [self.name, self.slug] if self.name != self.slug else [self.slug]
+            self.alnum_names = {alnum(name) for name in self.names}
         else:
             raise MetadataNotFound(
                 f"Couldn't find metadata for {type} {id} !")
